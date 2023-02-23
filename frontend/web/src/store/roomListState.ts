@@ -12,6 +12,7 @@ export const roomListState = atom<Array<Room>>({
       summary: "カラオケ：ここにある", // string 部屋の概要
       isOpen: true, // boolean 参加者受付中かどうか
       lastUpdate: "2023-02-20T13:11:22+09:00", //string 最終更新日 ISO形式
+      
       members: [
         {
           memberId: 1, // string ユーザーId
@@ -75,6 +76,7 @@ export const roomListState = atom<Array<Room>>({
         },
       ],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
     {
       roomId: 2, // string 部屋ID
@@ -85,6 +87,7 @@ export const roomListState = atom<Array<Room>>({
       lastUpdate: "2022-05-09T00:08:06+09:00", //string 最終更新日 ISO形式
       members: [],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
     {
       roomId: 3, // string 部屋ID
@@ -95,6 +98,7 @@ export const roomListState = atom<Array<Room>>({
       lastUpdate: "1467-05-09T00:08:06+09:00", //string 最終更新日 ISO形式
       members: [],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
     {
       roomId: 4, // string 部屋ID
@@ -105,6 +109,7 @@ export const roomListState = atom<Array<Room>>({
       lastUpdate: "2022-05-09T00:08:06+09:00", //string 最終更新日 ISO形式
       members: [],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
     {
       roomId: 5, // string 部屋ID
@@ -115,6 +120,7 @@ export const roomListState = atom<Array<Room>>({
       lastUpdate: "2023-01-09T00:08:06+09:00", //string 最終更新日 ISO形式
       members: [],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
     {
       roomId: 6, // string 部屋ID
@@ -125,6 +131,7 @@ export const roomListState = atom<Array<Room>>({
       lastUpdate: "2002-01-09T00:08:06+09:00", //string 最終更新日 ISO形式
       members: [],
       roomMaker: "たなか", // string 部屋を作った人の名前}
+      tags: ""
     },
   ],
 });

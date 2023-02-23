@@ -16,62 +16,21 @@ export const roomState = atom<Room>({
         memberId: 1, // string ユーザーId
         name: "たなか", // string ユーザーの名前
         comment: "3000円以内のお店がいいです", // string 備考欄（使わないかも）
-        tag: "カラオケ",
+        tag: "料金支払い済み",
       },
       {
         memberId: 2, // string ユーザーId
         name: "すずき",
         comment: "",
-        tag: "居酒屋",
+        tag: "料金支払い済み",
       },
       {
         memberId: 3, // string ユーザーId
         name: "やまだ", // string ユーザーの名前
         comment: "3000円以内のお店がいいです", // string 備考欄（使わないかも）
-        tag: "ボーリング",
+        tag: "料金支払い済み",
       },
-      {
-        memberId: 4, // string ユーザーId
-        name: "みずたに",
-        comment: "",
-        tag: "カラオケ",
-      },
-      {
-        memberId: 5, // string ユーザーId
-        name: "すぎやま", // string ユーザーの名前
-        comment: "3000円以内のお店がいいです", // string 備考欄（使わないかも）
-        tag: "カラオケ",
-      },
-      {
-        memberId: 6, // string ユーザーId
-        name: "はっとり",
-        comment: "",
-        tag: "居酒屋",
-      },
-      {
-        memberId: 7, // string ユーザーId
-        name: "さとう", // string ユーザーの名前
-        comment: "3000円以内のお店がいいです", // string 備考欄（使わないかも）
-        tag: "カラオケ",
-      },
-      {
-        memberId: 8, // string ユーザーId
-        name: "なるせ",
-        comment: "",
-        tag: "ボーリング",
-      },
-      {
-        memberId: 9, // string ユーザーId
-        name: "みつや", // string ユーザーの名前
-        comment: "3000円以内のお店がいいです", // string 備考欄（使わないかも）
-        tag: "居酒屋",
-      },
-      {
-        memberId: 10, // string ユーザーId
-        name: "さかもと",
-        comment: "吐きそう",
-        tag: "カラオケ",
-      },
+    
     ],
     roomMaker: "たなか", // string 部屋を作った人の名前
     tags: "カラオケ,居酒屋,ボーリング" // string 部屋に存在するタグの一覧
