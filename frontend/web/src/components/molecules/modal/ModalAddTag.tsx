@@ -17,6 +17,10 @@ import {
   ModalOverlay,
   Text,
 } from "@chakra-ui/react";
+import { useRecoilValue } from "recoil";
+import { roomState } from "@/store/roomState";
+import { useEditRoom } from "@/hooks/http/put/useEditRoom";
+import { useGetRoom } from "@/hooks/http/get/useFetchRoom";
 
 type Props = {
   isOpen: boolean;
@@ -29,6 +33,9 @@ type InputContent = {
 
 export const ModalAddTag: FC<Props> = (props) => {
   const { isOpen, onClose } = props;
+  const { tags, roomId } = useRecoilValue(roomState);
+  const { editRoom } = useEditRoom();
+  const { fetchRoom } = useGetRoom();
 
   const {
     register,
@@ -36,17 +43,21 @@ export const ModalAddTag: FC<Props> = (props) => {
     formState: { errors, isSubmitting },
   } = useForm<InputContent>();
 
+  const onSubmit = handleSubmit(({ tag }) => {
+    if (tags.includes(tag)) return;
+    const added = tags.concat(tag);
+
+    editRoom({ roomId, tags: added })
+      .then(() => fetchRoom({ roomId }));
+  });
+
   return (
     <Modal onClose={onClose} isOpen={isOpen} isCentered>
       <ModalOverlay />
       <ModalContent mx="1rem">
         <ModalHeader>タグ追加</ModalHeader>
         <ModalCloseButton />
-        <form
-          onSubmit={handleSubmit(() => {
-            console.log("ddd");
-          })}
-        >
+        <form onSubmit={onSubmit}>
           <ModalBody>
             <FormControl isInvalid={errors.tag !== undefined}>
               <FormLabel mb={3}>
@@ -64,7 +75,7 @@ export const ModalAddTag: FC<Props> = (props) => {
               <Input
                 id="tag"
                 type="text"
-                placeholder="例：支払い済み"
+                placeholder="例：5号室"
                 {...register("tag", {
                   required: true,
                 })}
@@ -77,6 +88,7 @@ export const ModalAddTag: FC<Props> = (props) => {
           <ModalFooter>
             <Center>
               <HStack spacing={4}>
+                <Button onClick={onClose}>戻る</Button>
                 <Button
                   type="submit"
                   color="white"
@@ -88,7 +100,6 @@ export const ModalAddTag: FC<Props> = (props) => {
                 >
                   追加
                 </Button>
-                <Button onClick={onClose}>戻る</Button>
               </HStack>
             </Center>
           </ModalFooter>
