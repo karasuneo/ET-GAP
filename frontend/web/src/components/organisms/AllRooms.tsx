@@ -8,7 +8,7 @@ import { roomListState } from "@/store/roomListState";
 export const AllRooms: FC = () => {
   const roomList = useRecoilValue(roomListState);
   if (roomList.length === 0) return (
-    <Center>
+    <Center p={4}>
       最近閲覧した部屋はありません！<br />
       QRコードやURLで部屋を共有してもらったり、自分で部屋を作ってみましょう！
     </Center>
